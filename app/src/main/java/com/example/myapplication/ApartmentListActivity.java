@@ -3,7 +3,6 @@ package com.example.myapplication;
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -12,22 +11,41 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ApartmentListActivity extends AppCompatActivity {
+    GoogleSignInAccount account;
+
+
 
     ApartmentAdapter adapter;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apartment_list);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            account = (GoogleSignInAccount)extras.get("user");
+        }
+
+        TextView welcome = findViewById(R.id.welcomeTV);
+        welcome.setText("Welcome, " + account.getDisplayName());
+
+        ImageView userImage = findViewById(R.id.mainUserImage);
+        Glide.with(this).load(account.getPhotoUrl()).into(userImage);
+
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
                 new ActivityResultCallback<ActivityResult>() {
@@ -49,7 +67,7 @@ public class ApartmentListActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,1);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ApartmentAdapter(users);
+        adapter = new ApartmentAdapter(users, account);
         recyclerView.setAdapter(adapter);
         ItemTouchHelper helper = new ItemTouchHelper(new SwipeToDeleteCallback(adapter));
         helper.attachToRecyclerView(recyclerView);

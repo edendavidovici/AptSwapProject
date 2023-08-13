@@ -19,9 +19,9 @@ public class NewApartmentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 EditText name = findViewById(R.id.location);
-                EditText email = findViewById(R.id.contact);
+                EditText owner = findViewById(R.id.owner);
 
-                Apartment newApartment = new Apartment(R.drawable.avatar6,name.getText().toString(),email.getText().toString());
+                Apartment newApartment = new Apartment(R.drawable.avatar6,name.getText().toString(), owner.getText().toString());
                 Intent intent = new Intent();
                 intent.putExtra("apartment",newApartment);
                 setResult(1,intent);

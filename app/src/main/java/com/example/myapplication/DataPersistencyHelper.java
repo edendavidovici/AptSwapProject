@@ -32,14 +32,14 @@ public class DataPersistencyHelper {
             return new Gson().fromJson(json,type);
         } else {
             List<Apartment> apartments = new ArrayList<>();
-            apartments.add(new Apartment(R.drawable.avatar1,"Madrid","abby@gmail.com"));
-            apartments.add(new Apartment(R.drawable.avatar2,"Paris","johnny@icloud.com"));
-            apartments.add(new Apartment(R.drawable.avatar3,"Haifa","itay@yahoo.com"));
-            apartments.add(new Apartment(R.drawable.avatar4,"Tel-Aviv","yoni99@gmail.com"));
-            apartments.add(new Apartment(R.drawable.avatar5,"Los Angeles","johnnydepp@gmail.com"));
-            apartments.add(new Apartment(R.drawable.avatar6,"Seoul","kimyon@yahoo.com"));
-            apartments.add(new Apartment(R.drawable.avatar7,"Kyoto","argiato@gmail.com"));
-            apartments.add(new Apartment(R.drawable.avatar8,"Moscow","vlad@gmail.com"));
+            apartments.add(new Apartment(R.drawable.avatar1,"Madrid", "Barack Obama"));
+            apartments.add(new Apartment(R.drawable.avatar2,"Paris","Barack Obama"));
+            apartments.add(new Apartment(R.drawable.avatar3,"Haifa","Barack Obama"));
+            apartments.add(new Apartment(R.drawable.avatar4,"Tel-Aviv","Barack Obama"));
+            apartments.add(new Apartment(R.drawable.avatar5,"Los Angeles","Barack Obama"));
+            apartments.add(new Apartment(R.drawable.avatar6,"Seoul", "Barack Obama"));
+            apartments.add(new Apartment(R.drawable.avatar7,"Kyoto","Barack Obama"));
+            apartments.add(new Apartment(R.drawable.avatar8,"Moscow","Barack Obama"));
             return apartments;
         }
 

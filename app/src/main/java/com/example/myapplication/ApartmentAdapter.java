@@ -9,12 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
 import java.util.List;
 
 public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentViewHolder> {
     List<Apartment> Apartments;
-    public ApartmentAdapter(List<Apartment> apartments) {
+
+    public ApartmentAdapter(List<Apartment> apartments, GoogleSignInAccount account) {
         Apartments = apartments;
+
     }
     public void addApartment(Apartment apartment) {
         Apartments.add(apartment);
@@ -41,7 +45,8 @@ public class ApartmentAdapter extends RecyclerView.Adapter<ApartmentViewHolder> 
         Apartment apartment = Apartments.get(position);
         holder.avatar.setImageResource(apartment.getImage());
         holder.location.setText(apartment.getLocation());
-        holder.contact.setText(apartment.getContact());
+        holder.owner.setText(apartment.getOwner());
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

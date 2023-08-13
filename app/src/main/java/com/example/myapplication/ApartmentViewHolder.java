@@ -13,7 +13,8 @@ public class ApartmentViewHolder extends RecyclerView.ViewHolder {
     public CardView cardView;
     public ImageView avatar;
     public TextView location;
-    public TextView contact;
+    public TextView owner;
+
 
     public ApartmentViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -21,6 +22,7 @@ public class ApartmentViewHolder extends RecyclerView.ViewHolder {
         cardView = itemView.findViewById(R.id.cardView);
         avatar = itemView.findViewById(R.id.avatar);
         location = itemView.findViewById(R.id.location);
-        contact = itemView.findViewById(R.id.contact);
+        owner = itemView.findViewById(R.id.owner);
+
     }
 }

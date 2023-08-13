@@ -6,12 +6,14 @@ public class Apartment  implements Serializable {
 
     private int Image;
     private String Location;
-    private String Contact;
+    private String Owner;
 
-    public Apartment(int image, String location, String contact) {
+
+    public Apartment(int image, String location, String owner) {
         Image = image;
         Location = location;
-        Contact = contact;
+        Owner = owner;
+
     }
 
     public int getImage() {
@@ -21,8 +23,8 @@ public class Apartment  implements Serializable {
     public String getLocation() {
         return Location;
     }
-
-    public String getContact() {
-        return Contact;
+    public String getOwner() {
+        return Owner;
     }
+
 }
